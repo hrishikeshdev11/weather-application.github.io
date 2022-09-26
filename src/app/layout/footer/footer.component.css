@@ -1,0 +1,8 @@
+.bg-color{
+    background-color: rgba(234, 231, 231, 0.5);
+    backdrop-filter: blur(10px);
+}
+a{
+    text-decoration: none;
+    color: black;
+}

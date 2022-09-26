@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  baseUrl:'http://api.weatherstack.com/',
+  baseUrl2:'http://api.weatherapi.com/v1/',
   production: false
 };
 

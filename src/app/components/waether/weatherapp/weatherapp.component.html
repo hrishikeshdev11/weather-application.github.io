@@ -1,0 +1,253 @@
+<div class="container-fluid bg-image pt-5 pb-5">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        <div class="row text-end search">
+            <div class="col input">
+                <form>
+                    <select name="city" [(ngModel)]="city" (change)="weatherCheck()">
+                        <option ngValue="Nagpur">Nagpur</option>
+                        <option ngValue="Mumbai">Mumbai</option>
+                        <option ngValue="Delhi">Delhi</option>
+                        <option ngValue="Pune">Pune</option>
+                        <option ngValue="Nagpur">Nagpur</option>
+                    </select>
+                    <input class="input_style" placeholder="Anyother city of world" type="text" name="city" [(ngModel)]="otherCity">
+                    <a class="btn_style" (click)="weatherCheckOtherCity()">Check</a>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-2 xs_media">
+            <div class="col-6 xs_media_col">
+                <div class="card border-0 shadow blur">
+                    <div class="col text-center m-1">
+                        <p class="city">{{foreCastInfo.location.name}}</p>
+                    </div>
+                    <div class="row content">
+                        <div class="col-6 text-end">
+                            <img class="rounded-5" src="https:{{foreCastInfo.forecast.forecastday[0].day.condition.icon}}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <p class="temperature">{{foreCastInfo.current.temp_c}}°C</p>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        {{foreCastInfo.current.condition.text}}
+                    </div>
+                    <div class="row text-center">
+                        <p class="sub-info">Humidity:{{foreCastInfo.current.humidity}}</p>
+                    </div>
+                    <div class="row text-center">
+                        <p class="sub-info">{{foreCastInfo.location.country}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 xs_media_col">
+                <div class="row">
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">Cloud Cover</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.current.cloud}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">UV Index</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.current.uv}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">Wind Speed</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.current.wind_kph}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">Lat</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.location.lat}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">Lon</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.location.lon}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 mb-2">
+                        <div class="card border-0 shadow blur">
+                            <div class="col text-center m-1">
+                                <p class="city">Date</p>
+                            </div>
+                            <div class="row content text-center">
+                                <div class="col">
+                                    <p class="sub">{{foreCastInfo.forecast.forecastday[0].astro.date}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="row"><h3>Astro Status</h3></div>
+            <div class="row xs_media_1">
+                <div class="col-4 s">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Sunrise</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="sub">{{foreCastInfo.forecast.forecastday[0].astro.sunrise}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Sunset</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="sub">{{foreCastInfo.forecast.forecastday[0].astro.sunset}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Moon Phase</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="sub">{{foreCastInfo.forecast.forecastday[0].astro.moon_phase}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-3 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Average km/h</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="cloudcover">{{foreCastInfo.forecast.forecastday[0].day.avgvis_km}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="row"><h3>Day Status</h3></div>
+            <div class="row xs_media_1">
+                <div class="col-3 s">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Maximum Temperature</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="sub">{{foreCastInfo.forecast.forecastday[0].day.maxtemp_c}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Average Temperature</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="sub">{{foreCastInfo.forecast.forecastday[0].day.avgtemp_c}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Maximum km/h</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="cloudcover">{{foreCastInfo.forecast.forecastday[0].day.maxwind_kph}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 s" id="">
+                    <div class="card border-0 shadow blur">
+                        <div class="col text-center m-1">
+                            <p class="city">Average km/h</p>
+                        </div>
+                        <div class="row content text-center">
+                            <div class="col">
+                                <p class="cloudcover">{{foreCastInfo.forecast.forecastday[0].day.avgvis_km}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="row"><h3>Hours Status</h3></div>
+            <div class="row d-flex justify-content-center align-content-center">
+                <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-1 mb-1 " *ngFor="let hr of hours">
+                    <div class="card bg-transparent blur border-bottom-1">
+                        <div class="col text-center">
+                            <p class="hours">{{hr.time | date:'shortTime'}}</p>
+                        </div>
+                        <div class="col text-center">
+                            <img src="{{hr.condition.icon}}" alt="">
+                        </div>
+                        <div class="col text-center">
+                            <p class="city">{{hr.condition.text}}</p>
+                        </div>
+                        <div class="col text-center">
+                            <p class="city">Cloud:{{hr.cloud}}</p>
+                        </div>
+                        <div class="col text-center">
+                            <p class="cloudcover">{{hr.temp_c}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
